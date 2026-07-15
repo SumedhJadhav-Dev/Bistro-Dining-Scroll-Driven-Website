@@ -7,7 +7,7 @@ Built in the style of an Awwwards Site-of-the-Day product showcase (inspired by 
 ---
 
 > [!IMPORTANT]
-> ### ➔ **[CLICK HERE TO VISIT THE LIVE SITE](https://restaurantdemodevinedge.netlify.app/)**
+> ### ➔ **[LIVE SITE](https://restaurantdemodevinedge.netlify.app/)**
 
 ---
 
