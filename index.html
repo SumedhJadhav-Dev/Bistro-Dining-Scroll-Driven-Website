@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ember & Salt — An 11-scene scrollytelling culinary journey in Bandra West, Mumbai. Live-fire gastronomy, wood hearth smoke, and 3D dish interactions.">
+  <title>EMBER &amp; SALT | Scrollytelling Fine Dining | Bandra West, Mumbai</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load Montserrat (Display) and IBM Plex Mono (Technical Details) -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Film Grain Overlay -->
+  <div class="film-grain-overlay"></div>
+
+  <!-- Ambient Gradient Wash Orbs -->
+  <div class="global-gradient-wash">
+    <div class="glow-orb orb-1" id="glow-orb-1"></div>
+    <div class="glow-orb orb-2" id="glow-orb-2"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <h1 class="preloader-logo font-montserrat">EMBER &amp; SALT</h1>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL CHROME (Fixed overlays) -->
+  <header class="global-chrome-header">
+    <a href="#" class="chrome-logo font-montserrat" id="chrome-logo">
+      <svg class="logo-flame-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3Z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      EMBER &amp; SALT
+    </a>
+    
+    <button class="chrome-menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+      <span class="menu-bar bar-1"></span>
+      <span class="menu-bar bar-2"></span>
+    </button>
+  </header>
+
+  <!-- Global Bottom Chrome -->
+  <div class="global-chrome-footer">
+    <!-- Bottom Left: Scene Progress Rail -->
+    <div class="chrome-progress-wrap">
+      <div class="chrome-progress-bar">
+        <div class="chrome-progress-fill" id="global-progress-fill"></div>
+      </div>
+      <span class="chrome-scene-indicator font-mono" id="global-scene-indicator">01 / 11</span>
+    </div>
+
+    <!-- Bottom Right: Circular Rotating Badge Button -->
+    <button class="chrome-rotating-badge" id="global-badge" aria-label="Scroll to target scene">
+      <svg viewBox="0 0 100 100">
+        <path id="badge-circle-path" fill="none" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+        <text class="font-mono" fill="#d9b968" font-size="7" letter-spacing="1">
+          <textPath href="#badge-circle-path" startOffset="0%" id="badge-text-path">EXPLORE THE MENU &bull; RESERVE NOW &bull; </textPath>
+        </text>
+      </svg>
+      <div class="badge-inner-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M19 12l-7 7-7-7"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- Full-Screen Glass Menu Drawer -->
+  <div class="full-screen-nav" id="full-screen-nav">
+    <ul class="nav-links font-montserrat">
+      <li><a href="#scene-01" class="nav-item-link" data-index="1"><span class="nav-num font-mono">01</span> HERO</a></li>
+      <li><a href="#scene-02" class="nav-item-link" data-index="2"><span class="nav-num font-mono">02</span> HEARTH</a></li>
+      <li><a href="#scene-03" class="nav-item-link" data-index="3"><span class="nav-num font-mono">03</span> SALT</a></li>
+      <li><a href="#scene-04" class="nav-item-link" data-index="4"><span class="nav-num font-mono">04</span> TOMAHAWK</a></li>
+      <li><a href="#scene-05" class="nav-item-link" data-index="5"><span class="nav-num font-mono">05</span> SMOKE</a></li>
+      <li><a href="#scene-06" class="nav-item-link" data-index="6"><span class="nav-num font-mono">06</span> SOURCE</a></li>
+      <li><a href="#scene-07" class="nav-item-link" data-index="7"><span class="nav-num font-mono">07</span> LOBSTER</a></li>
+      <li><a href="#scene-08" class="nav-item-link" data-index="8"><span class="nav-num font-mono">08</span> CRAFT</a></li>
+      <li><a href="#scene-09" class="nav-item-link" data-index="9"><span class="nav-num font-mono">09</span> DESSERT</a></li>
+      <li><a href="#scene-10" class="nav-item-link" data-index="10"><span class="nav-num font-mono">10</span> ROOM</a></li>
+      <li><a href="#scene-11" class="nav-item-link" data-index="11"><span class="nav-num font-mono">11</span> FIRE</a></li>
+    </ul>
+    <div class="nav-footer font-mono">
+      <p>Carter Road, Bandra West, Mumbai &bull; hearth@embersalt.in</p>
+    </div>
+  </div>
+
+  <!-- Shared Fixed Canvas for Particles -->
+  <canvas class="scrolly-canvas" id="scrolly-canvas"></canvas>
+
+  <!-- Pinned Scrollytelling Wrapper -->
+  <div id="scroll-wrapper">
+
+    <!-- 01 — HERO: FIRE. REVOLUTIONIZED. -->
+    <section class="scene" id="scene-01" data-scene="1">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=80" alt="Embers wood fire close up" class="scene-img zoom-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content text-center">
+        <h1 class="scene-title font-montserrat blur-reveal-headline">FIRE. REVOLUTIONIZED.</h1>
+        <p class="scene-subtitle font-mono font-gold">MUMBAI &bull; EST. 2019 &bull; OPEN-HEARTH FINE DINING</p>
+      </div>
+      <div class="scroll-cue">
+        <div class="scroll-cue-line"></div>
+        <span class="scroll-cue-text font-mono font-gold">SCROLL TO DISCOVER</span>
+      </div>
+    </section>
+
+    <!-- 02 — FIRST, THE HEARTH. -->
+    <section class="scene" id="scene-02" data-scene="2">
+      <div class="scene-bg bg-black"></div>
+      
+      <!-- Branching fire SVG path -->
+      <svg class="branching-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path id="fuse-main" class="fuse-path" d="M 500,50 C 500,250 450,380 400,550 C 360,700 480,850 500,950" />
+        <path id="fuse-branch-1" class="fuse-path-branch" d="M 460,310 C 350,380 220,410 140,500" />
+        <path id="fuse-branch-2" class="fuse-path-branch" d="M 420,470 C 530,550 680,600 820,700" />
+        <path id="fuse-branch-3" class="fuse-path-branch" d="M 380,630 C 260,680 180,720 100,810" />
+      </svg>
+
+      <div class="scene-content container-left">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">FIRST,<br>THE HEARTH.</h2>
+        <p class="scene-description font-manrope">
+          We built the restaurant around a living hearth. No gas connections, no electrical hotspots, no thermostats. We cook exclusively with raw split mango, ironbark logs, and red-hot coals.
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 — MACRO DETAIL: EVERY GRAIN OF SALT. -->
+    <section class="scene" id="scene-03" data-scene="3">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1613082265551-0cfa094e9f3b?auto=format&fit=crop&w=1800&q=80" alt="Macro sea salt crystals" class="scene-img blur-img" id="salt-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content container-right">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">EVERY GRAIN<br>OF SALT.</h2>
+        <p class="scene-description font-manrope">
+          Wild sea salt crystals hand-harvested from the Konkan coast. Crystallized naturally under the sun, providing the clean mineral edge that balances the intense char of the logs.
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 — SIGNATURE DISH SPIN REVEAL: THE TOMAHAWK. -->
+    <section class="scene scene-dish" id="scene-04" data-scene="4">
+      <div class="scene-bg bg-black"></div>
+      <div class="scene-content d-flex align-center justify-between container-wide">
+        
+        <!-- 3D Pedestal Container Left/Center -->
+        <div class="dish-pedestal-wrapper">
+          <div class="dish-pedestal-shadow"></div>
+          <div class="dish-pedestal">
+            <div class="pedestal-glass-base"></div>
+            <div class="dish-plate">
+              <img src="https://images.unsplash.com/photo-1546964124-0cce460f38ef?auto=format&fit=crop&w=800&q=80" alt="Dry aged Tomahawk steak" class="dish-img">
+              <!-- Steam elements -->
+              <div class="steam-container">
+                <div class="steam-wisp wisp-s1"></div>
+                <div class="steam-wisp wisp-s2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Right -->
+        <div class="dish-details font-manrope">
+          <span class="dish-course font-mono font-gold">COURSE 01 / BEEF</span>
+          <h2 class="scene-title font-montserrat blur-reveal-headline">THE TOMAHAWK.</h2>
+          <p class="scene-description text-muted">
+            45-day dry-aged prime tenderloin seared directly on open split ironbark embers. Accompanied by hearth-roasted bone marrow reduction.
+          </p>
+          <span class="dish-price font-mono font-gold">&nbsp;&nbsp;₹4,200 (FOR TWO)</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 — OUR SMOKE. OUR STANDARD. -->
+    <section class="scene" id="scene-05" data-scene="5">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=1800&q=80" alt="Smoky dark culinary glaze" class="scene-img scale-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content container-left">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">OUR SMOKE.<br>OUR STANDARD.</h2>
+        <p class="scene-description font-manrope">
+          Our smoking box runs 24 hours a day. Powered by coconut husks and fruitwood sawdust, drawing flavor deep into every glaze, oil, and sea broth.
+        </p>
+      </div>
+    </section>
+
+    <!-- 06 — WE GO TO THE SOURCE. -->
+    <section class="scene" id="scene-06" data-scene="6">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1800&q=80" alt="Kitchen prep over coals" class="scene-img zoom-out-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content container-center text-center">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">WE GO TO<br>THE SOURCE.</h2>
+        <p class="scene-description font-manrope max-width-sm margin-auto">
+          We source Day-boat seafood from Mumbai coasts and organic greens from nearby small-holder farms. Primal fire treatments, executed with restraint.
+        </p>
+      </div>
+    </section>
+
+    <!-- 07 — SIGNATURE DISH SPIN REVEAL: THE LOBSTER. -->
+    <section class="scene scene-dish" id="scene-07" data-scene="7">
+      <div class="scene-bg bg-black"></div>
+      <div class="scene-content d-flex align-center justify-between container-wide">
+        
+        <!-- 3D Pedestal Container Left/Center -->
+        <div class="dish-pedestal-wrapper">
+          <div class="dish-pedestal-shadow"></div>
+          <div class="dish-pedestal">
+            <div class="pedestal-glass-base"></div>
+            <div class="dish-plate">
+              <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=800&q=80" alt="Grilled Lobster Tail" class="dish-img">
+              <!-- Steam elements -->
+              <div class="steam-container">
+                <div class="steam-wisp wisp-s1"></div>
+                <div class="steam-wisp wisp-s2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Right -->
+        <div class="dish-details font-manrope">
+          <span class="dish-course font-mono font-gold">COURSE 02 / CRUSTACEA</span>
+          <h2 class="scene-title font-montserrat blur-reveal-headline">THE LOBSTER.</h2>
+          <p class="scene-description text-muted">
+            Konkan coast spiny lobster tails split and basted in wood-fire miso butter, grilled directly over hot coconut shell husks.
+          </p>
+          <span class="dish-price font-mono font-gold">&nbsp;&nbsp;₹3,100</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 08 — TESTING. TASTING. AND MORE TASTING. -->
+    <section class="scene" id="scene-08" data-scene="8">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?auto=format&fit=crop&w=1800&q=80" alt="Fine dining plated dish" class="scene-img scale-img" id="tasting-img">
+        <div class="scene-scrim-darker" id="tasting-scrim"></div>
+      </div>
+      <!-- Falling Ember Word Canvas overlays this scene in app.js -->
+      <div class="scene-content container-left">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">TESTING. TASTING.<br>AND MORE TASTING.</h2>
+        <p class="scene-description font-manrope">
+           Gastronomy refined by heat. Every plating represents absolute structural alignment—pairing charcoal smoke with delicate Konkan acids.
+        </p>
+      </div>
+    </section>
+
+    <!-- 09 — SIGNATURE DISH SPIN REVEAL: THE DESSERT. -->
+    <section class="scene scene-dish" id="scene-09" data-scene="9">
+      <div class="scene-bg bg-black"></div>
+      <div class="scene-content d-flex align-center justify-between container-wide">
+        
+        <!-- 3D Pedestal Container Left/Center -->
+        <div class="dish-pedestal-wrapper">
+          <div class="dish-pedestal-shadow"></div>
+          <div class="dish-pedestal">
+            <div class="pedestal-glass-base"></div>
+            <div class="dish-plate">
+              <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Chocolate coal dessert" class="dish-img">
+              <!-- Steam elements -->
+              <div class="steam-container">
+                <div class="steam-wisp wisp-s1"></div>
+                <div class="steam-wisp wisp-s2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Right -->
+        <div class="dish-details font-manrope">
+          <span class="dish-course font-mono font-gold">COURSE 03 / SWEET</span>
+          <h2 class="scene-title font-montserrat blur-reveal-headline">THE DESSERT.</h2>
+          <p class="scene-description text-muted">
+            70% Valrhona dark chocolate ash cake, served with cold-smoked milk cream and crystallised black volcanic salt.
+          </p>
+          <span class="dish-price font-mono font-gold">&nbsp;&nbsp;₹1,450</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10 — THE ROOM: LOW LIGHT. NO RUSH. -->
+    <section class="scene" id="scene-10" data-scene="10">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1800&q=80" alt="Dining room warm candlelit table" class="scene-img loop-zoom-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content container-left">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">LOW LIGHT.<br>NO RUSH.</h2>
+        <p class="scene-description font-manrope">
+          An intimate, 32-seat candlelit room designed for sensory focus. Hand-thrown dark clay tableware, raw iron accents, and slow dinner blocks.
+        </p>
+      </div>
+    </section>
+
+    <!-- 11 — CLOSING: COME SIT BY THE FIRE. -->
+    <section class="scene" id="scene-11" data-scene="11">
+      <div class="scene-bg">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=80" alt="Warm glowing kitchen hearth fire" class="scene-img zoom-img">
+        <div class="scene-scrim-darker"></div>
+      </div>
+      <div class="scene-content container-center text-center d-flex flex-column align-center justify-center">
+        <h2 class="scene-title font-montserrat blur-reveal-headline">COME SIT<br>BY THE FIRE.</h2>
+        <p class="scene-description font-manrope max-width-sm margin-auto">
+          Experience Bandra West's live-fire fine dining concept. Bookings are released exactly 30 days in advance at 10:00 AM daily.
+        </p>
+        <button class="btn btn-primary font-montserrat mt-4" id="open-reserve-btn">
+          Reserve a Table
+        </button>
+      </div>
+    </section>
+
+    <!-- FOOTER SCENE -->
+    <section class="scene footer-scene" id="scene-footer" data-scene="footer">
+      <div class="scene-bg bg-black"></div>
+      <div class="footer-grid container">
+        <div class="footer-links-col">
+          <ul class="footer-nav font-mono">
+            <li><a href="#scene-01" class="footer-link">SIGN UP FOR OFFERS</a></li>
+            <li><a href="tel:+919820012345" class="footer-link">SPEAK TO OUR HOST</a></li>
+            <li><a href="mailto:events@embersalt.in" class="footer-link">PRIVATE DINING &amp; EVENTS</a></li>
+            <li><a href="#" class="footer-link">VISIT OUR JOURNAL</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-info-col font-mono text-muted text-sm">
+          <p class="margin-bottom-xs">24, Carter Road, Bandra West, Mumbai</p>
+          <p class="margin-bottom-xs">Dinner Only &bull; 7:00 PM &mdash; 11:30 PM &bull; Closed Mondays</p>
+          <p class="margin-top-xs">&copy; 2026 EMBER &amp; SALT. All Rights Reserved.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Reservation Overlay Form (Modal) -->
+  <div class="success-modal-overlay" id="reserve-modal">
+    <div class="success-modal-card glass-card text-center">
+      <button class="modal-close-btn" id="close-modal" aria-label="Close booking form">&times;</button>
+      <div class="modal-seal-flame">🔥</div>
+      <h3 class="font-montserrat text-cream text-2xl margin-bottom-sm">Request Hearth Seating</h3>
+      
+      <form class="reservation-form" id="booking-form">
+        <div class="form-group">
+          <input type="text" id="form-name" class="form-input" placeholder=" " required autocomplete="off">
+          <label for="form-name" class="form-label font-manrope">Full Name</label>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-6">
+            <input type="number" id="form-guests" class="form-input" min="1" max="6" placeholder=" " required autocomplete="off">
+            <label for="form-guests" class="form-label font-manrope">Guests (Max 6)</label>
+          </div>
+          <div class="form-group col-6">
+            <input type="tel" id="form-phone" class="form-input" pattern="[0-9]{10}" placeholder=" " required autocomplete="off">
+            <label for="form-phone" class="form-label font-manrope">Phone (10 digits)</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-6">
+            <input type="date" id="form-date" class="form-input" placeholder=" " required autocomplete="off">
+            <label for="form-date" class="form-label font-manrope">Date</label>
+          </div>
+          <div class="form-group col-6">
+            <select id="form-time" class="form-input" required>
+              <option value="" disabled selected class="select-placeholder"></option>
+              <option value="19:00">7:00 PM (First Seating)</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="21:15">9:15 PM (Second Seating)</option>
+              <option value="21:45">9:45 PM</option>
+            </select>
+            <label for="form-time" class="form-label font-manrope">Time</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 font-montserrat btn-submit">
+          Secure Seating
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Booking Confirmation Ticket Modal -->
+  <div class="success-modal-overlay" id="ticket-modal">
+    <div class="success-modal-card glass-card text-center">
+      <div class="modal-seal-flame">🔥</div>
+      <h3 class="font-montserrat text-cream text-2xl margin-bottom-xs">Hearth Ticket Issued</h3>
+      <p class="font-mono font-gold margin-bottom-sm" id="ticket-number">TICKET #ES-4720</p>
+      <div class="modal-details font-manrope text-muted text-sm margin-bottom-md">
+        <p>Thank you, <strong id="modal-confirm-name" class="text-cream">Guest</strong>.</p>
+        <p>We have reserved a seating for <strong id="modal-confirm-guests" class="text-cream">2</strong> guests on <strong id="modal-confirm-date" class="text-cream">July 10</strong> at <strong id="modal-confirm-time" class="text-cream">7:30 PM</strong>.</p>
+        <p class="margin-top-xs text-xs">SMS instructions have been dispatched to <span id="modal-confirm-phone">9999999999</span>.</p>
+      </div>
+      <button class="btn btn-primary font-montserrat" id="close-ticket-btn">Acknowledge</button>
+    </div>
+  </div>
+
+  <!-- GSAP & ScrollTrigger from CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  <!-- Custom Scrollytelling Logic -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
